@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "address")
-public class Address implements Cloneable {
+public class Address {
 
     @Id
     @SequenceGenerator(name = "address_gen", sequenceName = "address_seq", initialValue = 1, allocationSize = 1)
