@@ -1,0 +1,6 @@
+docker run --rm --name pg-docker_v1 \
+-e POSTGRES_PASSWORD=password \
+-e POSTGRES_USER=user \
+-e POSTGRES_DB=demoCacheDB \
+-p 5431:5432 \
+postgres:13
