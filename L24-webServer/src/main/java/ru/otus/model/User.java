@@ -1,6 +1,6 @@
 package ru.otus.model;
 
-public class User {
+public class  User {
 
     private final long id;
     private final String name;
