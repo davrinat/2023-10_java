@@ -67,3 +67,7 @@ pluginManagement {
 }
 include("L24-webServer")
 include("L25-di")
+include("L25-di:homework")
+findProject(":L25-di:homework")?.name = "homework"
+include("L25-di:class-demo")
+findProject(":L25-di:class-demo")?.name = "class-demo"

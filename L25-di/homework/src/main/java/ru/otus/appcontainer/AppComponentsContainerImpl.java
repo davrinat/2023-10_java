@@ -1,11 +1,12 @@
 package ru.otus.appcontainer;
 
+import ru.otus.appcontainer.api.AppComponentsContainer;
+import ru.otus.appcontainer.api.AppComponentsContainerConfig;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import ru.otus.appcontainer.api.AppComponentsContainer;
-import ru.otus.appcontainer.api.AppComponentsContainerConfig;
 
 @SuppressWarnings("squid:S1068")
 public class AppComponentsContainerImpl implements AppComponentsContainer {

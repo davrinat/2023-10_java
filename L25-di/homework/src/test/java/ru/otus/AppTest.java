@@ -1,13 +1,5 @@
 package ru.otus;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatCode;
-
-import java.io.PrintStream;
-import java.lang.reflect.Modifier;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,6 +10,15 @@ import ru.otus.appcontainer.api.AppComponent;
 import ru.otus.appcontainer.api.AppComponentsContainerConfig;
 import ru.otus.config.AppConfig;
 import ru.otus.services.*;
+
+import java.io.PrintStream;
+import java.lang.reflect.Modifier;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 class AppTest {
 
