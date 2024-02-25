@@ -66,3 +66,4 @@ pluginManagement {
     }
 }
 include("L24-webServer")
+include("L25-di")
