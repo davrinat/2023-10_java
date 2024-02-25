@@ -19,10 +19,10 @@ public class DbServiceClientImpl implements DBServiceClient {
     private final TransactionManager transactionManager;
     private final HwCache<String, Client> cache;
 
-    public DbServiceClientImpl(TransactionManager transactionManager, DataTemplate<Client> clientDataTemplate) {
+    public DbServiceClientImpl(TransactionManager transactionManager, DataTemplate<Client> clientDataTemplate, MyCache<String, Client>  cache) {
         this.transactionManager = transactionManager;
         this.clientDataTemplate = clientDataTemplate;
-        cache = new MyCache<>();
+        this.cache = cache;
     }
 
     @Override
@@ -32,6 +32,7 @@ public class DbServiceClientImpl implements DBServiceClient {
             if (client.getId() == null) {
                 var savedClient = clientDataTemplate.insert(session, clientCloned);
                 log.info("created client: {}", clientCloned);
+                cache.put(String.valueOf(clientCloned.getId()), clientCloned);
                 return savedClient;
             }
             var savedClient = clientDataTemplate.update(session, clientCloned);

@@ -3,6 +3,7 @@ package ru.otus.hw;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.otus.cachehw.MyCache;
 import ru.otus.hw.core.repository.DataTemplateHibernate;
 import ru.otus.hw.core.repository.HibernateUtils;
 import ru.otus.hw.core.sessionmanager.TransactionManagerHibernate;
@@ -33,7 +34,7 @@ public class Application {
         ///
         var clientTemplate = new DataTemplateHibernate<>(Client.class);
         ///
-        var dbServiceClient = new DbServiceClientImpl(transactionManager, clientTemplate);
+        var dbServiceClient = new DbServiceClientImpl(transactionManager, clientTemplate, new MyCache<>());
         dbServiceClient.saveClient(new Client("dbServiceFirst"));
 
         var clientSecond = dbServiceClient.saveClient(new Client("dbServiceSecond"));

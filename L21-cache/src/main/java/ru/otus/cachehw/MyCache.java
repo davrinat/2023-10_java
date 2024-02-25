@@ -10,8 +10,13 @@ import java.util.WeakHashMap;
 public class MyCache<K, V> implements HwCache<K, V> {
     // Надо реализовать эти методы
 
-    private final WeakHashMap<K, V> cache = new WeakHashMap<>();
-    private final List<HwListener<K, V>> listeners = new ArrayList<>();
+    private final WeakHashMap<K, V> cache;
+    private final List<HwListener<K, V>> listeners;
+
+    public MyCache() {
+        cache  = new WeakHashMap<>();
+        listeners = new ArrayList<>();
+    }
 
     @Override
     public void put(K key, V value) {
