@@ -53,6 +53,11 @@ public class DbServiceClientImpl implements DBServiceClient {
             }
             var clientOptional = clientDataTemplate.findById(session, id);
             log.info("client: {}", clientOptional);
+            if (clientOptional.isPresent()) {
+                client = clientOptional.get();
+                cache.put(client.getId().toString(), client);
+                return Optional.of(client);
+            }
             return clientOptional;
         });
     }
