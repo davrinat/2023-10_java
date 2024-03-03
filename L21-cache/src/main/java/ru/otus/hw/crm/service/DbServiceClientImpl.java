@@ -58,7 +58,7 @@ public class DbServiceClientImpl implements DBServiceClient {
                 cache.put(client.getId().toString(), client);
                 return Optional.of(client);
             }
-            return clientOptional;
+            return Optional.empty();
         });
     }
 
