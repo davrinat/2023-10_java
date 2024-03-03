@@ -1,48 +1,57 @@
 rootProject.name = "otusJava"
 include("L01-gradle")
-
 include("L02-gradle2")
 include("L02-gradle2-libApi")
 include("L02-gradle2-libApiUse")
 include("L02-logging")
-
 include("L03-qa")
 include("L04-generics")
 include("L05-collections")
 include("L06-annotations")
-
 include("L08-gc:demo")
 include("L08-gc:homework")
-
 include("L09-docker")
 include("L10-byteCodes")
 include("L11-java8")
-
 include("L12-solid")
 include("L13-creationalPatterns")
 include("L14-behavioralPatterns")
 include("L15-structuralPatterns:demo")
 include("L15-structuralPatterns:homework")
-
 include("L16-io:demo")
 include("L16-io:homework")
-
 include("L17-nio")
-
 include("L18-jdbc:demo")
 include("L18-jdbc:homework")
-
 include("L20-hibernate")
 include("L21-cache")
-
 include("L22-jpql:class-demo")
 include("L22-jpql:homework-template")
-
 include ("L23-noSQL:mongo-db-demo")
 include ("L23-noSQL:mongo-db-reactive-demo")
 include ("L23-noSQL:neo4j-demo")
 include ("L23-noSQL:redis-demo")
 include ("L23-noSQL:cassandra-demo")
+include("L24-webServer")
+include("L25-di")
+include("L25-di:homework")
+findProject(":L25-di:homework")?.name = "homework"
+include("L25-di:class-demo")
+findProject(":L25-di:class-demo")?.name = "class-demo"
+include("L26-springBootMVC")
+include("L27-websocket")
+include("L28-springDataJDBC")
+include("L29-threads")
+include("L27-websocket:application")
+findProject(":L27-websocket:application")?.name = "application"
+include("L27-websocket:massager")
+findProject(":L27-websocket:massager")?.name = "massager"
+include("L27-websocket:messager-starter")
+findProject(":L27-websocket:messager-starter")?.name = "messager-starter"
+include("L27-websocket:websocket")
+findProject(":L27-websocket:websocket")?.name = "websocket"
+include("L28-springDataJDBC:homework")
+findProject(":L28-springDataJDBC:homework")?.name = "homework"
 
 pluginManagement {
     val jgitver: String by settings
@@ -65,23 +74,3 @@ pluginManagement {
         id("com.diffplug.spotless") version spotless
     }
 }
-include("L24-webServer")
-include("L25-di")
-include("L25-di:homework")
-findProject(":L25-di:homework")?.name = "homework"
-include("L25-di:class-demo")
-findProject(":L25-di:class-demo")?.name = "class-demo"
-include("L26-springBootMVC")
-include("L27-websocket")
-include("L28-springDataJDBC")
-include("L29-threads")
-include("L27-websocket:application")
-findProject(":L27-websocket:application")?.name = "application"
-include("L27-websocket:massager")
-findProject(":L27-websocket:massager")?.name = "massager"
-include("L27-websocket:messager-starter")
-findProject(":L27-websocket:messager-starter")?.name = "messager-starter"
-include("L27-websocket:websocket")
-findProject(":L27-websocket:websocket")?.name = "websocket"
-include("L28-springDataJDBC:homework")
-findProject(":L28-springDataJDBC:homework")?.name = "homework"

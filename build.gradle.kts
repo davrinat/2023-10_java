@@ -83,6 +83,8 @@ allprojects {
             dependency("org.freemarker:freemarker:$freemarker")
 
             dependency("org.reflections:reflections:$reflections")
+//            dependency("org.springdoc:springdoc-openapi-starter-webmvc-ui:$springDocOpenapiUi")
+
         }
     }
 
