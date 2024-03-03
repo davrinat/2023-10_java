@@ -74,3 +74,4 @@ pluginManagement {
         id("com.diffplug.spotless") version spotless
     }
 }
+include("L28-homework")
