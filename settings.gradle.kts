@@ -77,3 +77,5 @@ pluginManagement {
         id("com.diffplug.spotless") version spotless
     }
 }
+include("L31-executors:homework")
+findProject(":L31-executors:homework")?.name = "homework"
