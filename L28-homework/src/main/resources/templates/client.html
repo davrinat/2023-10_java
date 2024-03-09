@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Клиент</title>
+    </head>
+    <body>
+        <h3>Клиент</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Name </th>
+                    <th> Phone </th>
+                    <th> Address </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span th:text="${client.id}"> Id </span></td>
+                    <td><span th:text="${client.name}"> Имя </span></td>
+                    <td><span th:text="${client.phone.phone}"> Телефон </span></td>
+                    <td><span th:text="${client.address.street}"> Адрес </span></td>
+                </tr>
+            </tbody>
+        </table>
+        <form>
+            <input type="button" value="Назад" onclick="history.back()">
+        </form>
+    </body>
+</html>

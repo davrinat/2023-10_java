@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Клиенты</title>
+    </head>
+    <body>
+        <h3>Список пользователей</h3>
+        <table style="width: 400px">
+            <thead>
+            <tr>
+                <td style="width: 50px">Id</td>
+                <td style="width: 150px">Имя</td>
+                <td style="width: 150px">Улица</td>
+                <td style="width: 150px">Телефон</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${clients.empty}">
+                <td colspan="2"> No clients </td>
+            </tr>
+            <tr th:each="client : ${clients}">
+                <td><a th:href="@{/api/client/{id} (id=${client.getId()})}" th:text="${client.name}"> Имя </a></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <form action="#" th:action="@{/api/client/save}" th:object="${client}" method="get">
+            <p><input type="submit" value="New client" />
+        </form>
+    </body>
+</html>
