@@ -52,6 +52,9 @@ include("L27-websocket:websocket")
 findProject(":L27-websocket:websocket")?.name = "websocket"
 include("L28-springDataJDBC:homework")
 findProject(":L28-springDataJDBC:homework")?.name = "homework"
+include("L28-homework")
+include ("L30-JMM")
+include ("L31-executors")
 
 pluginManagement {
     val jgitver: String by settings
@@ -74,4 +77,3 @@ pluginManagement {
         id("com.diffplug.spotless") version spotless
     }
 }
-include("L28-homework")
