@@ -57,8 +57,12 @@ include ("L30-JMM")
 include ("L31-executors")
 include("L31-executors:homework")
 findProject(":L31-executors:homework")?.name = "homework"
-include ("L32-concurrentCollections")
-include ("L33-multiprocess")
+include ("L32-concurrentCollections:ConcurrentCollections")
+include ("L32-concurrentCollections:QueueDemo")
+include ("L33-multiprocess:processes-demo")
+include ("L33-multiprocess:sockets-demo")
+include ("L33-multiprocess:rmi-demo")
+include ("L33-multiprocess:grpc-demo")
 
 pluginManagement {
     val jgitver: String by settings
