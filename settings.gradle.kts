@@ -55,6 +55,10 @@ findProject(":L28-springDataJDBC:homework")?.name = "homework"
 include("L28-homework")
 include ("L30-JMM")
 include ("L31-executors")
+include("L31-executors:homework")
+findProject(":L31-executors:homework")?.name = "homework"
+include ("L32-concurrentCollections")
+include ("L33-multiprocess")
 
 pluginManagement {
     val jgitver: String by settings
