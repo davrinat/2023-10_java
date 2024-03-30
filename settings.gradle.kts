@@ -63,6 +63,7 @@ include ("L33-multiprocess:processes-demo")
 include ("L33-multiprocess:sockets-demo")
 include ("L33-multiprocess:rmi-demo")
 include ("L33-multiprocess:grpc-demo")
+include ("L33-multiprocess:homework")
 
 pluginManagement {
     val jgitver: String by settings
