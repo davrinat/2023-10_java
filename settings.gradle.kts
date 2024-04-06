@@ -73,6 +73,10 @@ include ("L37-webflux:processor")
 include ("L37-webflux:client")
 include ("L37-webflux-chat:client-service")
 include ("L37-webflux-chat:datastore-service")
+include("L31-executors:homework")
+findProject(":L31-executors:homework")?.name = "homework"
+include("L33-multiprocess:homework")
+findProject(":L33-multiprocess:homework")?.name = "homework"
 
 pluginManagement {
     val jgitver: String by settings
@@ -95,7 +99,4 @@ pluginManagement {
         id("com.diffplug.spotless") version spotless
     }
 }
-include("L31-executors:homework")
-findProject(":L31-executors:homework")?.name = "homework"
-include("L33-multiprocess:homework")
-findProject(":L33-multiprocess:homework")?.name = "homework"
+
