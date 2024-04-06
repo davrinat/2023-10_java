@@ -1,11 +1,13 @@
 package ru.otus.service;
 
 import io.grpc.stub.StreamObserver;
-import ru.otus.protobuf.generated.RemoteDBServiceGrpc;
+import lombok.extern.slf4j.Slf4j;
 import ru.otus.protobuf.generated.ClientMessage;
+import ru.otus.protobuf.generated.RemoteDBServiceGrpc;
 import ru.otus.protobuf.generated.ServerMessage;
 
 @SuppressWarnings({"squid:S2142"})
+@Slf4j
 public class RemoteDBServiceImpl extends RemoteDBServiceGrpc.RemoteDBServiceImplBase implements RemoteDBService {
     @Override
     public void getValue(ClientMessage request, StreamObserver<ServerMessage> responseObserver) {
@@ -14,7 +16,8 @@ public class RemoteDBServiceImpl extends RemoteDBServiceGrpc.RemoteDBServiceImpl
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                log.error(e.getMessage());
+                Thread.currentThread().interrupt();
             }
             responseObserver.onNext(serverMessage(i));
         }

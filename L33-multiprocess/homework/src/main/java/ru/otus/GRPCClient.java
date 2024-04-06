@@ -1,12 +1,10 @@
 package ru.otus;
 
 import io.grpc.ManagedChannelBuilder;
-import io.grpc.stub.StreamObserver;
 import ru.otus.protobuf.generated.ClientMessage;
 import ru.otus.protobuf.generated.RemoteDBServiceGrpc;
-import ru.otus.protobuf.generated.ServerMessage;
+import ru.otus.service.CustomStreamObserver;
 
-import java.util.Stack;
 import java.util.concurrent.CountDownLatch;
 
 @SuppressWarnings({"squid:S106", "squid:S1149"})
@@ -21,42 +19,24 @@ public class GRPCClient {
 
         var latch = new CountDownLatch(1);
         var newStub = RemoteDBServiceGrpc.newStub(channel);
-        Stack<ServerMessage> serverMessageStack = new Stack<>();
 
-        newStub.getValue(ClientMessage.newBuilder().setFirstValue(0).setLastValue(30).build(), new StreamObserver<ServerMessage>() {
+        var clientMessage =ClientMessage.newBuilder().setFirstValue(0).setLastValue(30).build();
+        var observer = new CustomStreamObserver();
 
-            @Override
-            public void onNext(ServerMessage value) {
-                serverMessageStack.push(value);
-                System.out.println("new value: " + value.getValue());
-            }
-
-            @Override
-            public void onError(Throwable t) {
-                System.err.println("ERROR:: /n" + t);
-            }
-
-            @Override
-            public void onCompleted() {
-                System.out.println("completed!");
-            }
-        });
+        newStub.getValue(clientMessage, observer);
 
         long currentValue = 0;
 
         for (long i = 0; i <= 50; i++) {
             if (i == 0) {
-                System.out.println("numbers of Client is starting...");
                 Thread.sleep(1000);
+                System.out.println("numbers of Client is starting...");
             }
             Thread.sleep(1000);
-            long serverValue = serverMessageStack.empty() ? 0 : serverMessageStack.pop().getValue();
-            currentValue = currentValue + serverValue + 1;
+            currentValue = currentValue + observer.getValue() + 1;
             System.out.println("current value: " + currentValue);
         }
-
         latch.await();
-
         channel.shutdown();
     }
 }
