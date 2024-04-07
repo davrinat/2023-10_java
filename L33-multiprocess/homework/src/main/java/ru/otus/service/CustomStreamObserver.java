@@ -4,13 +4,13 @@ import io.grpc.stub.StreamObserver;
 import ru.otus.protobuf.generated.ServerMessage;
 
 public class CustomStreamObserver implements StreamObserver<ServerMessage> {
-    long value;
+
+    private long value;
 
     @Override
     public void onNext(ServerMessage serverMessage) {
-        this.value = serverMessage.getValue();
-        System.out.println("new value: " + value);
-
+        System.out.println("new value: " + serverMessage.getValue());
+        setValue(serverMessage.getValue());
     }
 
     @Override
@@ -23,9 +23,13 @@ public class CustomStreamObserver implements StreamObserver<ServerMessage> {
         System.out.println("completed!");
     }
 
-    public long getValue() {
+    public synchronized long getValue() {
         long currValue = value;
         value = 0;
         return currValue;
+    }
+
+    public synchronized void setValue(long value) {
+        this.value = value;
     }
 }
